@@ -1,0 +1,16 @@
+unique_name: Model1
+object_type: model
+label: Model1
+dimensions: []
+metrics:
+  - unique_name: Total Num CVE
+relationships:
+  - unique_name: Workload-Vulns_CVE_to_VULNERABILITY Impact_CVE
+    from:
+      dataset: Workload-Vulns
+      join_columns:
+        - CVE
+    to:
+      dimension: VULNERABILITY Impact
+      level: CVE
+

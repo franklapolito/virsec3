@@ -1,0 +1,6 @@
+unique_name: AVG Trust Score
+object_type: metric
+label: AVG Trust Score
+calculation_method: average
+column: TRUST_SCORE
+dataset: Workload-Software

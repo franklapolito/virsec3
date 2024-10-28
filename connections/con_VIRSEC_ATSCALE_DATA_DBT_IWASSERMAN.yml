@@ -1,0 +1,6 @@
+unique_name: con_VIRSEC_ATSCALE_DATA_DBT_IWASSERMAN
+object_type: connection
+label: con_VIRSEC_ATSCALE_DATA_DBT_IWASSERMAN
+as_connection: Snowflake Partner
+database: VIRSEC_ATSCALE_DATA
+schema: DBT_IWASSERMAN

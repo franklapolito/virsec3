@@ -1,0 +1,32 @@
+unique_name: DIM_VULNERABILITIES_STATIC
+object_type: dataset
+label: DIM_VULNERABILITIES_STATIC
+columns:
+  - name: CVE
+    data_type: string
+  - name: DESCRIPTION
+    data_type: string
+  - name: SEVERITY_CATEGORY
+    data_type: string
+  - name: SEVERITY_SCORE
+    data_type: string
+  - name: ATTACK_VECTOR
+    data_type: string
+  - name: ATTACK_COMPLEXITY
+    data_type: string
+  - name: PRIVILEGES_REQUIRED
+    data_type: string
+  - name: USER_INTERACTION_REQUIRED
+    data_type: string
+  - name: SCOPE
+    data_type: string
+  - name: CONFIDENTIALITY_IMPACT
+    data_type: string
+  - name: INTEGRITY_IMPACT
+    data_type: string
+  - name: AVAILABILITY_IMPACT
+    data_type: string
+  - name: UPDATED_AT
+    data_type: decimal(38,0)
+connection_id: con_VIRSEC_ATSCALE_DATA_DBT_IWASSERMAN
+table: DIM_VULNERABILITIES_STATIC

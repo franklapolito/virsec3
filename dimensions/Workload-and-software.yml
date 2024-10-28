@@ -1,0 +1,39 @@
+unique_name: Workload-and-software
+object_type: dimension
+label: Workload-and-software
+hierarchies:
+  - unique_name: Workload-software Hierarchy
+    label: Workload-software Hierarchy
+    levels:
+      - unique_name: Workload
+      - unique_name: Application
+  - unique_name: Workload-and-Vuln Hierarchy
+    label: Workload-and-Vuln Hierarchy
+    levels:
+      - unique_name: CVE
+level_attributes:
+  - unique_name: Workload
+    label: Workload
+    contains_unique_names: false
+    dataset: Workload-Software
+    is_unique_key: false
+    key_columns:
+      - WORKLOAD_OID
+    name_column: WORKLOAD_NAME
+  - unique_name: CVE
+    label: CVE
+    contains_unique_names: false
+    dataset: Workload-Vulns
+    is_unique_key: false
+    key_columns:
+      - CVE
+    name_column: CVE
+  - unique_name: Application
+    label: Application
+    contains_unique_names: false
+    dataset: Workload-Software
+    is_unique_key: false
+    key_columns:
+      - APPLICATION_OID
+    name_column: APPLICATION_OID
+type: standard

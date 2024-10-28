@@ -1,0 +1,6 @@
+version: 1
+unique_name: Virsec3
+object_type: catalog
+label: Virsec3
+aggressive_agg_promotion: false
+build_speculative_aggs: true

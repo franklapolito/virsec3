@@ -1,0 +1,75 @@
+unique_name: Workload-Vulns
+object_type: dataset
+label: Workload-Vulns
+columns:
+  - name: CVE
+    data_type: string
+  - name: IS_EXPLOIT_AVAILABLE
+    data_type: boolean
+  - name: IS_PROTECTED_BY_VSP
+    data_type: boolean
+  - name: IS_PROTECTED_BY_VSP_HOST
+    data_type: boolean
+  - name: IS_PROTECTED_BY_VSP_MEM
+    data_type: boolean
+  - name: IS_PROTECTED_BY_VSP_VRULE
+    data_type: boolean
+  - name: IS_PROTECTED_BY_VSP_WEB
+    data_type: boolean
+  - name: TENANT_ID
+    data_type: string
+  - name: UPDATED_AT
+    data_type: decimal(38,0)
+  - name: VULNERABILITY_INSTANCE_OID
+    data_type: decimal(19,0)
+  - name: WORKLOAD_ID
+    data_type: string
+  - name: WORKLOAD_IP
+    data_type: string
+  - name: WORKLOAD_NAME
+    data_type: string
+  - name: WORKLOAD_OID
+    data_type: string
+  - name: APPLICATION_OID
+    data_type: string
+  - name: IS_DELETED
+    data_type: boolean
+  - name: LICENSE_OID
+    data_type: string
+  - name: OPERATING_SYSTEM
+    data_type: string
+  - name: OPERATING_SYSTEM_PLATFORM
+    data_type: string
+  - name: OPERATING_SYSTEM_VERSION
+    data_type: string
+  - name: VSP_VERSION
+    data_type: string
+connection_id: con_VIRSEC_ATSCALE_DATA_DBT_IWASSERMAN
+sql: |-
+  select
+    v.CVE,
+    v.IS_EXPLOIT_AVAILABLE,
+    v.IS_PROTECTED_BY_VSP,
+    v.IS_PROTECTED_BY_VSP_HOST,
+    v.IS_PROTECTED_BY_VSP_MEM,
+    v.IS_PROTECTED_BY_VSP_VRULE,
+    v.IS_PROTECTED_BY_VSP_WEB,
+    v.TENANT_ID,
+    v.UPDATED_AT,
+    v.VULNERABILITY_INSTANCE_OID,
+    v.WORKLOAD_ID,  -- Or w.WORKLOAD_ID
+    v.WORKLOAD_IP,
+    v.WORKLOAD_NAME,
+    v.WORKLOAD_OID,  -- Or w.WORKLOAD_OID
+    w.APPLICATION_OID,
+    w.IS_DELETED,
+    w.LICENSE_OID,
+    w.OPERATING_SYSTEM,
+    w.OPERATING_SYSTEM_PLATFORM,
+    w.OPERATING_SYSTEM_VERSION, 
+    w.VSP_VERSION 
+  from VIRSEC_ATSCALE_DATA.DBT_IWASSERMAN.dim_vulnerability_instances_static v
+  asof join VIRSEC_ATSCALE_DATA.DBT_IWASSERMAN.dim_workloads_stream_static w
+    match_condition(v.updated_at >= w.updated_at)
+    on(v.workload_id = w.workload_id)
+  order by v.workload_id, v.updated_at

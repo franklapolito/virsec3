@@ -1,0 +1,6 @@
+unique_name: Total Num CVE
+object_type: metric
+label: Total Num CVE
+calculation_method: sum
+column: CVE
+dataset: Workload-Vulns
