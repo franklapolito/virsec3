@@ -1,0 +1,27 @@
+unique_name: WL&Software
+object_type: dimension
+label: WL&Software
+hierarchies:
+  - unique_name: WL&Software Hierarchy
+    label: WL&Software Hierarchy
+    levels:
+      - unique_name: WL&Software Level
+      - unique_name: APPLICATION_OID
+level_attributes:
+  - unique_name: WL&Software Level
+    label: WL&Software Level
+    contains_unique_names: false
+    dataset: Workload-Software
+    is_unique_key: false
+    key_columns:
+      - WORKLOAD_OID
+    name_column: WORKLOAD_NAME
+  - unique_name: APPLICATION_OID
+    label: APPLICATION_OID
+    contains_unique_names: false
+    dataset: Workload-Software
+    is_unique_key: false
+    key_columns:
+      - APPLICATION_OID
+    name_column: NAME
+type: standard

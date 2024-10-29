@@ -1,0 +1,6 @@
+unique_name: TrustScore-AVG
+object_type: metric
+label: TrustScore-AVG
+calculation_method: average
+column: TRUST_SCORE
+dataset: qds3

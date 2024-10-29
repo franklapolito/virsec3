@@ -1,0 +1,31 @@
+unique_name: WorkloadSoftwareModel copy
+object_type: model
+label: WorkloadSoftwareModel
+dimensions: []
+metrics:
+  - unique_name: TrustScore-AVG
+relationships:
+  - unique_name: qds3_WORKLOAD_OID_to_Workload_Workload Name
+    from:
+      dataset: qds3
+      join_columns:
+        - WORKLOAD_OID
+    to:
+      dimension: Workload
+      level: Workload Name
+  - unique_name: qds3_APPLICATION_OID_to_WL&Software_APPLICATION_OID
+    from:
+      dataset: qds3
+      join_columns:
+        - APPLICATION_OID
+    to:
+      dimension: WL&Software
+      level: APPLICATION_OID
+  - unique_name: qds3_UPDATED_AT_to_Date_Date Level
+    from:
+      dataset: qds3
+      join_columns:
+        - UPDATED_AT
+    to:
+      dimension: Date
+      level: Date Level

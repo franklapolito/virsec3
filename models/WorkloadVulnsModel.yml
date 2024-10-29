@@ -1,0 +1,23 @@
+unique_name: WorkloadVulnsModel
+object_type: model
+label: WorkloadVulnsModel
+dimensions: []
+metrics:
+  - unique_name: DC_Vulns
+relationships:
+  - unique_name: Workload-Vulns_WORKLOAD_OID_to_Workload_Workload Name
+    from:
+      dataset: Workload-Vulns
+      join_columns:
+        - WORKLOAD_OID
+    to:
+      dimension: Workload
+      level: Workload Name
+  - unique_name: Workload-Vulns_CVE_to_VulnerabilityDimension_Vulnerability
+    from:
+      dataset: Workload-Vulns
+      join_columns:
+        - CVE
+    to:
+      dimension: VulnerabilityDimension
+      level: Vulnerability

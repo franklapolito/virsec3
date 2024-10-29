@@ -1,0 +1,6 @@
+unique_name: DC_Vulns
+object_type: metric
+label: DC_Vulns
+calculation_method: count distinct
+column: VULNERABILITY_INSTANCE_OID
+dataset: Workload-Vulns

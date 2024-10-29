@@ -1,0 +1,86 @@
+unique_name: qds3
+object_type: dataset
+label: qds3
+columns:
+  - name: APPLICATION_OID
+    data_type: string
+  - name: IP_ADDRESS
+    data_type: string
+  - name: IS_DELETED
+    data_type: boolean
+  - name: LICENSE_OID
+    data_type: string
+  - name: OPERATING_SYSTEM
+    data_type: string
+  - name: OPERATING_SYSTEM_PLATFORM
+    data_type: string
+  - name: OPERATING_SYSTEM_VERSION
+    data_type: string
+  - name: TENANT_ID
+    data_type: string
+  - name: UPDATED_AT
+    data_type: datetime
+  - name: VSP_VERSION
+    data_type: string
+  - name: WORKLOAD_ID
+    data_type: string
+  - name: WORKLOAD_NAME
+    data_type: string
+  - name: WORKLOAD_OID
+    data_type: string
+  - name: CHECKSUM
+    data_type: string
+  - name: CREATED_AT
+    data_type: decimal(38,0)
+  - name: INTELLIGENCE_CREATED_AT
+    data_type: decimal(38,0)
+  - name: NAME
+    data_type: string
+  - name: PATH
+    data_type: string
+  - name: SOFTWARE_CREATED_AT
+    data_type: decimal(38,0)
+  - name: SOFTWARE_OID
+    data_type: string
+  - name: SOFTWARE_TYPE
+    data_type: string
+  - name: TRUST_CATEGORY
+    data_type: string
+  - name: TRUST_SCORE
+    data_type: decimal(38,0)
+  - name: VERIFICATION_SOURCE
+    data_type: string
+connection_id: con_VIRSEC_ATSCALE_DATA_DBT_IWASSERMAN
+sql: |-
+  SELECT
+      w.application_oid,
+      w.ip_address,
+      w.is_deleted,
+      w.license_oid,
+      w.operating_system,
+      w.operating_system_platform,
+      w.operating_system_version,
+      w.tenant_id,
+      CAST(w.updated_at/1000 AS DATETIME) AS updated_at,  -- Cast to datetime
+      w.vsp_version,
+      w.workload_id,
+      w.workload_name,
+      w.workload_oid,
+      v.checksum,
+      v.created_at,
+      v.intelligence_created_at,
+      v.name,
+      v.path,
+      v.software_created_at,
+      v.software_oid,
+      v.software_type,
+      v.trust_category,
+      v.trust_score,
+      v.verification_source
+  FROM
+      VIRSEC_ATSCALE_DATA.DBT_IWASSERMAN.fct_software_stream_static AS v
+  ASOF JOIN
+      VIRSEC_ATSCALE_DATA.DBT_IWASSERMAN.dim_workloads_stream_static AS w
+  MATCH_CONDITION (v.updated_at >= w.updated_at)
+  ON v.workload_id = w.workload_id
+  ORDER BY v.workload_id, v.updated_at

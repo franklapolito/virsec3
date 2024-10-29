@@ -1,0 +1,6 @@
+unique_name: '# of Software'
+object_type: metric
+label: '# of Software'
+calculation_method: count distinct
+column: SOFTWARE_OID
+dataset: Workload-Software

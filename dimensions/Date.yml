@@ -1,0 +1,19 @@
+unique_name: Date
+object_type: dimension
+label: Date
+hierarchies:
+  - unique_name: Date Hierarchy
+    label: Date Hierarchy
+    levels:
+      - unique_name: Date Level
+level_attributes:
+  - unique_name: Date Level
+    label: Date Level
+    contains_unique_names: false
+    dataset: qds3
+    is_unique_key: false
+    key_columns:
+      - UPDATED_AT
+    name_column: UPDATED_AT
+    time_unit: day
+type: time
