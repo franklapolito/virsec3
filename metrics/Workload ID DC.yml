@@ -1,0 +1,6 @@
+unique_name: Workload ID DC
+object_type: metric
+label: Workload ID DC
+calculation_method: count distinct
+column: WORKLOAD_ID
+dataset: DIM_WORKLOADS_STATIC

@@ -1,0 +1,77 @@
+unique_name: Workload
+object_type: dimension
+label: Workload
+hierarchies:
+  - unique_name: Workload/OS Hierarchy
+    label: Workload/OS Hierarchy
+    folder: Workload
+    levels:
+      - unique_name: OPERATING_SYSTEM_PLATFORM
+      - unique_name: OPERATING_SYSTEM
+      - unique_name: OPERATING_SYSTEM_VERSION
+      - unique_name: Workload Name
+        secondary_attributes:
+          - unique_name: IP Address
+            label: IP Address
+            contains_unique_names: false
+            dataset: DIM_WORKLOADS_STATIC
+            is_unique_key: false
+            key_columns:
+              - IP_ADDRESS
+            name_column: IP_ADDRESS
+          - unique_name: VSP Version
+            label: VSP Version
+            contains_unique_names: false
+            dataset: DIM_WORKLOADS_STATIC
+            is_unique_key: false
+            key_columns:
+              - VSP_VERSION
+            name_column: VSP_VERSION
+  - unique_name: Workload/Tenant
+    label: Workload/Tenant
+    folder: Workload
+    levels:
+      - unique_name: TENANT_ID
+      - unique_name: Workload Name
+level_attributes:
+  - unique_name: Workload Name
+    label: Workload Name
+    contains_unique_names: false
+    dataset: DIM_WORKLOADS_STATIC
+    is_unique_key: false
+    key_columns:
+      - WORKLOAD_OID
+    name_column: WORKLOAD_NAME
+  - unique_name: OPERATING_SYSTEM_PLATFORM
+    label: Operating System Platform
+    contains_unique_names: false
+    dataset: DIM_WORKLOADS_STATIC
+    is_unique_key: false
+    key_columns:
+      - OPERATING_SYSTEM_PLATFORM
+    name_column: OPERATING_SYSTEM_PLATFORM
+  - unique_name: OPERATING_SYSTEM
+    label: OPERATING_SYSTEM
+    contains_unique_names: false
+    dataset: DIM_WORKLOADS_STATIC
+    is_unique_key: false
+    key_columns:
+      - OPERATING_SYSTEM
+    name_column: OPERATING_SYSTEM
+  - unique_name: OPERATING_SYSTEM_VERSION
+    label: OPERATING_SYSTEM_VERSION
+    contains_unique_names: false
+    dataset: DIM_WORKLOADS_STATIC
+    is_unique_key: false
+    key_columns:
+      - OPERATING_SYSTEM_VERSION
+    name_column: OPERATING_SYSTEM_VERSION
+  - unique_name: TENANT_ID
+    label: Tenent ID
+    contains_unique_names: false
+    dataset: DIM_WORKLOADS_STATIC
+    is_unique_key: false
+    key_columns:
+      - TENANT_ID
+    name_column: TENANT_ID
+type: standard

@@ -1,0 +1,16 @@
+unique_name: WorkloadsModel-Working
+object_type: model
+label: WorkloadsModel-Working
+dimensions: []
+metrics:
+  - unique_name: Workload ID DC
+    folder: Workload
+relationships:
+  - unique_name: DIM_WORKLOADS_STATIC_WORKLOAD_OID_to_Workload_Workload Name
+    from:
+      dataset: DIM_WORKLOADS_STATIC
+      join_columns:
+        - WORKLOAD_OID
+    to:
+      dimension: Workload
+      level: Workload Name
