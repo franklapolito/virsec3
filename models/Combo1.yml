@@ -1,0 +1,33 @@
+unique_name: Combo1
+object_type: model
+label: Combo1
+dimensions:
+  - Description
+metrics:
+  - unique_name: AvgSevScore
+  - unique_name: Number Cve
+relationships:
+  - unique_name: Workload-Vulns_CVE_to_VulnerabilityDimension_Vulnerability
+    from:
+      dataset: Workload-Vulns
+      join_columns:
+        - CVE
+    to:
+      dimension: VulnerabilityDimension
+      level: Vulnerability
+  - unique_name: Workload-Vulns_WORKLOAD_OID_to_Workload_Workload Name
+    from:
+      dataset: Workload-Vulns
+      join_columns:
+        - WORKLOAD_OID
+    to:
+      dimension: Workload
+      level: Workload Name
+  - unique_name: DIM_VULNERABILITIES_STATIC_CVE_to_VulnerabilityDimension_Vulnerability
+    from:
+      dataset: DIM_VULNERABILITIES_STATIC
+      join_columns:
+        - CVE
+    to:
+      dimension: VulnerabilityDimension
+      level: Vulnerability

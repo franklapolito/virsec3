@@ -1,0 +1,6 @@
+unique_name: Number Cve
+object_type: metric
+label: Number Cve
+calculation_method: count distinct
+column: CVE
+dataset: Workload-Vulns

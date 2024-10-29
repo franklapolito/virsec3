@@ -1,0 +1,18 @@
+unique_name: Description
+object_type: dimension
+label: Description
+hierarchies:
+  - unique_name: Description_Hierarchy
+    label: Description Hierarchy
+    levels:
+      - unique_name: Description_Level
+is_degenerate: true
+level_attributes:
+  - unique_name: Description_Level
+    label: Description Level
+    contains_unique_names: false
+    dataset: DIM_VULNERABILITIES_STATIC
+    key_columns:
+      - DESCRIPTION
+    name_column: DESCRIPTION
+type: standard

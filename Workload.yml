@@ -33,6 +33,11 @@ hierarchies:
     levels:
       - unique_name: TENANT_ID
       - unique_name: Workload Name
+  - unique_name: Workload
+    label: Workload
+    folder: Workload
+    levels:
+      - unique_name: Workload Name
 level_attributes:
   - unique_name: Workload Name
     label: Workload Name

@@ -1,0 +1,6 @@
+unique_name: AvgSevScore
+object_type: metric
+label: AvgSevScore
+calculation_method: average
+column: SEVERITY_SCORE
+dataset: DIM_VULNERABILITIES_STATIC

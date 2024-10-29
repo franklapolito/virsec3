@@ -1,0 +1,32 @@
+unique_name: DIM_WORKLOADS_STREAM_STATIC
+object_type: dataset
+label: DIM_WORKLOADS_STREAM_STATIC
+columns:
+  - name: TENANT_ID
+    data_type: string
+  - name: WORKLOAD_OID
+    data_type: string
+  - name: WORKLOAD_ID
+    data_type: string
+  - name: WORKLOAD_NAME
+    data_type: string
+  - name: OPERATING_SYSTEM_PLATFORM
+    data_type: string
+  - name: OPERATING_SYSTEM
+    data_type: string
+  - name: OPERATING_SYSTEM_VERSION
+    data_type: string
+  - name: IP_ADDRESS
+    data_type: string
+  - name: VSP_VERSION
+    data_type: string
+  - name: IS_DELETED
+    data_type: boolean
+  - name: UPDATED_AT
+    data_type: decimal(38,0)
+  - name: APPLICATION_OID
+    data_type: string
+  - name: LICENSE_OID
+    data_type: string
+connection_id: con_VIRSEC_ATSCALE_DATA_DBT_IWASSERMAN
+table: DIM_WORKLOADS_STREAM_STATIC

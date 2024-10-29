@@ -1,0 +1,23 @@
+unique_name: WorkloadsModel
+object_type: model
+label: WorkloadsModel
+dimensions: []
+metrics:
+  - unique_name: Number of CVE
+relationships:
+  - unique_name: Workload-Software_WORKLOAD_OID_to_Workload_Workload Name
+    from:
+      dataset: Workload-Software
+      join_columns:
+        - WORKLOAD_OID
+    to:
+      dimension: Workload
+      level: Workload Name
+  - unique_name: Workload-Vulns_WORKLOAD_OID_to_Workload_Workload Name
+    from:
+      dataset: Workload-Vulns
+      join_columns:
+        - WORKLOAD_OID
+    to:
+      dimension: Workload
+      level: Workload Name
