@@ -1,6 +1,6 @@
-unique_name: Date
+unique_name: Date2
 object_type: dimension
-label: Date
+label: Date2
 hierarchies:
   - unique_name: Date Hierarchy
     label: Date Hierarchy
@@ -10,7 +10,7 @@ level_attributes:
   - unique_name: Date Level
     label: Date Level
     contains_unique_names: false
-    dataset: Workload-Software-date
+    dataset: Workload-Vulns-date
     is_unique_key: false
     key_columns:
       - UPDATED_AT

@@ -1,0 +1,6 @@
+unique_name: Count_Cve
+object_type: metric
+label: Count_Cve
+calculation_method: count non-null
+column: CVE
+dataset: Workload-Vulns-date

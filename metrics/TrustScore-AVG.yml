@@ -3,4 +3,4 @@ object_type: metric
 label: TrustScore-AVG
 calculation_method: average
 column: TRUST_SCORE
-dataset: qds3
+dataset: Workload-Software-date

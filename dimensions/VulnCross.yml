@@ -1,0 +1,44 @@
+unique_name: VulnCross
+object_type: dimension
+label: VulnCross
+hierarchies:
+  - unique_name: VulnWorkload
+    label: VulnWorkload
+    levels:
+      - unique_name: Workload
+      - unique_name: Vuln
+        secondary_attributes:
+          - unique_name: Description
+            label: Description
+            contains_unique_names: false
+            dataset: DIM_VULNERABILITIES_STATIC
+            is_unique_key: false
+            key_columns:
+              - DESCRIPTION
+            name_column: DESCRIPTION
+level_attributes:
+  - unique_name: Vuln
+    label: Vuln
+    contains_unique_names: false
+    dataset: Workload-Vulns
+    is_unique_key: false
+    key_columns:
+      - CVE
+    name_column: CVE
+  - unique_name: Workload
+    label: Workload
+    contains_unique_names: false
+    dataset: Workload-Vulns
+    is_unique_key: false
+    key_columns:
+      - WORKLOAD_OID
+    name_column: WORKLOAD_OID
+relationships:
+  - from:
+      dataset: DIM_VULNERABILITIES_STATIC
+      join_columns:
+        - CVE
+    to:
+      level: Workload
+    type: snowflake
+type: standard

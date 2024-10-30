@@ -1,0 +1,31 @@
+unique_name: WorkloadVulnsModel w Date
+object_type: model
+label: WorkloadVulnsModel w Date
+dimensions: []
+metrics:
+  - unique_name: Count_Cve
+relationships:
+  - unique_name: Workload-Vulns-date_CVE_to_VulnerabilityDimension_Vulnerability
+    from:
+      dataset: Workload-Vulns-date
+      join_columns:
+        - CVE
+    to:
+      dimension: VulnerabilityDimension
+      level: Vulnerability
+  - unique_name: Workload-Vulns-date_WORKLOAD_OID_to_Workload_Workload Name
+    from:
+      dataset: Workload-Vulns-date
+      join_columns:
+        - WORKLOAD_OID
+    to:
+      dimension: Workload
+      level: Workload Name
+  - unique_name: Workload-Vulns-date_UPDATED_AT_to_Date2_Date Level
+    from:
+      dataset: Workload-Vulns-date
+      join_columns:
+        - UPDATED_AT
+    to:
+      dimension: Date2
+      level: Date Level

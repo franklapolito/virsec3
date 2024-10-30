@@ -21,3 +21,10 @@ relationships:
     to:
       dimension: VulnerabilityDimension
       level: Vulnerability
+  - unique_name: ''
+    from:
+      dataset: Workload-Vulns
+      join_columns: []
+    to:
+      dimension: ''
+      level: ''
